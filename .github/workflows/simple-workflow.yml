@@ -19,3 +19,4 @@ jobs:
           echo "Action: $GITHUB_ACTION"
           echo "Actor: $GITHUB_ACTOR"
           echo "Repository: $GITHUB_REPOSITORY"
+          echo "Event Name: $GITHUB_EVENT_NAME"
