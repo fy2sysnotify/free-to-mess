@@ -1,15 +1,20 @@
-name: Simple Workflow
+name: Multi event
 on:
   push:
     branches:
       - main
-
+      - dev
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build:
+  hello_world_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: "Echo Basic Information"
+        run: |
+          echo "REF: $GITHUB_REF"
+          echo "Job ID: $GITHUB_JOB"
+          echo "Action: $GITHUB_ACTION"
+          echo "Actor: $GITHUB_ACTOR"
