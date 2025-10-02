@@ -1,4 +1,4 @@
-name: generate-ascii.yml
+name: generate-ascii
 on: push
 
 jobs:
@@ -12,4 +12,6 @@ jobs:
         run: ls -ltr
 
       - name: Execute script
-        run: ./ascii-script.sh
+        run: |
+          chmod +x ./ascii-script.sh
+          ./ascii-script.sh
