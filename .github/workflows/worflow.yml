@@ -1,7 +1,13 @@
 name: Build Test and Deploy
 
 on:
-    workflow_dispatch:
+    # workflow_dispatch:
+    # push: 
+    #     branches: main
+    # pull_request: 
+    #     branches: main
+    schedule:
+        - cron: "*/1 * * * *"
 
 jobs:
     build:
