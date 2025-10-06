@@ -31,6 +31,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: deploying software
-              run: echo "deployng software"
-              
+              run: |
+                echo "deployng software"
+                sleep 300s
 
