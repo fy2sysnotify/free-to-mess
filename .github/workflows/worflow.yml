@@ -2,8 +2,8 @@ name: Build Test and Deploy
 
 on:
     workflow_dispatch:
-    # push: 
-    #     branches: main
+    push: 
+        branches: main
     # pull_request: 
     #     branches: main
     # schedule:
@@ -27,7 +27,7 @@ jobs:
         needs: test
         concurrency: 
             group: production-deployment
-            cancel-in-progress: true
+            cancel-in-progress: false
         runs-on: ubuntu-latest
         steps:
             - name: deploying software
