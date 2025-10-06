@@ -31,6 +31,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: deploying software
+              timeout-minutes: 1
               run: |
                 echo "deployng software"
                 sleep 300s
