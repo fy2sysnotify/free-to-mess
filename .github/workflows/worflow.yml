@@ -1,0 +1,27 @@
+name: Build Test and Deploy
+
+on:
+    workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+           - name: build
+             run: echo "Building software"
+             
+    test:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - name: testing
+              run: echo "Testing software"
+
+    deploy:
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+            - name: deploying software
+              run: echo "deployng software"
+              
+
