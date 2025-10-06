@@ -2,7 +2,7 @@ name: Build Test and Deploy
 
 on:
     workflow_dispatch:
-    # push: 
+    push: 
     #     branches: main
     # pull_request: 
     #     branches: main
@@ -24,6 +24,7 @@ jobs:
               run: echo "Testing software"
 
     deploy:
+        if: github.ref == 'ref/heads/main'
         needs: test
         concurrency: 
             group: production-deployment
