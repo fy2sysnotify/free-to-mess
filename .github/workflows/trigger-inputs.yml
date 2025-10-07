@@ -1,0 +1,44 @@
+name: Trigger Workflow with Inputs
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_tests:
+        description: "Run Tests"
+        type: boolean
+        required: true
+      test_type:
+        description: "Test Type"
+        type: choice
+        options:
+          - unit
+          - integration
+          - all
+        required: true
+      environment:
+        description: "Choose an Environment"
+        required: true
+        type: environment
+      build_number:
+        description: "Build Number"
+        type: number
+        required: false
+      message:
+        description: "Additional Message"
+        type: string
+        required: true
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print workflow inputs
+        run: |
+          echo "Run Tests: ${{ github.event.inputs.run_tests }}"
+          echo "Test Type: ${{ github.event.inputs.test_type }}"
+          echo "Environment: ${{ github.event.inputs.environment }}"
+          echo "Build Number: ${{ github.event.inputs.build_number }}"
+          echo "Message: ${{ github.event.inputs.message }}"
+
+      - name: Run tests
+        if: ${{ github.event.inputs.run_tests == 'true'}}
+        run: echo "Running tests"
