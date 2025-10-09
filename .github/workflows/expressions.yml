@@ -18,22 +18,3 @@ jobs:
       - name: Testing on Ubuntu
         if: runner.os == 'Linux'
         run: echo "Testing on Ubuntu"
-
-      - name: Testing on Windows
-        if: runner.os == 'Windows'
-        run: echo "Testing on Windows"
-
-  reports:
-    needs: test
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    steps:
-      - name: Generate Report
-        run: echo "Generating Report" && exit 1
-
-  deploy:
-    needs: reports
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy
-        run: echo "Deploying"
